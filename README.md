@@ -16,13 +16,13 @@ NB : if you use RedHat Advanced Cluster Manager, you will need to modify the api
 ## The application
 
 A simple guestbook. You type your text and it is displayed and record. 
-[Here is a printscreen of the application](https://github.com/rodolphe-fontaine/guestbook_mcm/blob/master/images/guestbook.png)
-<img src="https://raw.githubusercontent.com/rodolphe-fontaine/guestbook_mcm/master/images/guestbook.png"></img> 
+[Here is a printscreen of the application](https://github.com/hgrange/guestbook_mcm/blob/master/images/guestbook.png)
+<img src="https://raw.githubusercontent.com/hgrange/guestbook_mcm/master/images/guestbook.png"></img> 
 ## The architecture
 
 The application has been a little bit complexified by placing the frontend and the backend in 2 differents namespaces to properly illustrate the MCM capabilities
-[Here is the architecture schema](https://github.com/rodolphe-fontaine/guestbook_mcm/blob/master/images/archi.png)
-<img src="https://raw.githubusercontent.com/rodolphe-fontaine/guestbook_mcm/master/images/archi.png"></img> 
+[Here is the architecture schema](https://github.com/hgrange/guestbook_mcm/blob/master/images/archi.png)
+<img src="https://raw.githubusercontent.com/hgrange/guestbook_mcm/master/images/archi.png"></img> 
 
 ## The scenario
 
@@ -44,7 +44,7 @@ The application has been a little bit complexified by placing the frontend and t
 Your subscription is created. It is github channel. All the yaml files are available to make the application works. 
 
 Let's have a look at the subscription-frontend.yaml file : 
-<BR><img src="https://raw.githubusercontent.com/rodolphe-fontaine/guestbook_mcm/master/images/subscription.png" width="50%" height="75%"></img> 
+<BR><img src="https://raw.githubusercontent.com/hgrange/guestbook_mcm/master/images/subscription.png" width="50%" height="75%"></img> 
 
 Notice 2 things : 
 
@@ -55,17 +55,17 @@ Notice 2 things :
 
 ### Let's secure the communication between namespaces.
 It is a best practice to close all the communication between to namespaces. 
-<img src="https://raw.githubusercontent.com/rodolphe-fontaine/guestbook_mcm/master/images/denyall.png"></img> 
+<img src="https://raw.githubusercontent.com/hgrange/guestbook_mcm/master/images/denyall.png"></img> 
 
 Let's do it with the UI
-<img src="https://raw.githubusercontent.com/rodolphe-fontaine/guestbook_mcm/master/images/createdenyall.png"></img> 
+<img src="https://raw.githubusercontent.com/hgrange/guestbook_mcm/master/images/createdenyall.png"></img> 
 
 You can notice if you test your application, that when you type text, it is not anymore displayed. The communication with your backend does not work anymore. 
 
 ### Let's open the port 6379
 
 We will create a network policy on your target cluster to allow the communication between the frontend and the backend. 
-<img src="https://raw.githubusercontent.com/rodolphe-fontaine/guestbook_mcm/master/images/allow6379.png"></img>
+<img src="https://raw.githubusercontent.com/hgrange/guestbook_mcm/master/images/allow6379.png"></img>
 
     oc apply -f ./policy/policy-networkpolicy-gb.yaml
 
